@@ -1,5 +1,5 @@
 # raven-bash
-[![PyPi package version](https://badge.fury.io/py/raven-bash.png)](https://badge.fury.io/py/raven-bash)
+[![PyPi package version](https://badge.fury.io/py/raven-bash.png?v)](https://badge.fury.io/py/raven-bash)
     
 Raven Sentry client for Bash.
 
@@ -34,7 +34,6 @@ pip install raven-bash
   echo "Hello world!"
   echo "This will produce an error" | grep "success"
   ```
-  
   Scripts you include using `source` or `.` will be monitored automatically. Any other scripts you execute won't be monitored unless you add `source raven-bash` to them.
   
 ## Caveats
