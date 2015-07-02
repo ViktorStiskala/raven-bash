@@ -1,5 +1,5 @@
 # raven-bash
-[![PyPi package version](https://badge.fury.io/py/raven-bash.png)](https://badge.fury.io/py/raven-bash)
+[![PyPi package version](https://badge.fury.io/py/raven-bash.png?v)](https://badge.fury.io/py/raven-bash)
     
 Raven Sentry client for Bash.
 
