@@ -6,7 +6,7 @@ if sys.version_info[:2] < (3, 1):
 
 setup(
     name='raven-bash',
-    version='0.1',
+    version='0.1.1',
     description='Raven Sentry client for Bash.',
     long_description='Sentry client for Bash. Logs errors from your bash scripts.',
     classifiers=[
