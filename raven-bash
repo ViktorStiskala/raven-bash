@@ -2,7 +2,7 @@
 set -e
 set -o errtrace
 
-STDERR_TEMPFILE=`mktemp -t "stderr"`
+STDERR_TEMPFILE=`mktemp -t "stderr.XXXXXX"`
 exec 4>&2
 exec 2>"$STDERR_TEMPFILE"
 
