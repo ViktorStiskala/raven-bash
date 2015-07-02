@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+set -o errtrace
+
+STDERR_TEMPFILE=`mktemp -t "stderr"`
+exec 4>&2
+exec 2>"$STDERR_TEMPFILE"
+
+logger_trap() {
+    raven-logger "$1" "$3" "$2" --env "`env`" --stderr "`cat $STDERR_TEMPFILE`" --pwd "`pwd`" --function "$5" --declares "`declare -p`" > /dev/null
+    cat "$STDERR_TEMPFILE" 1>&2
+    rm -f "$STDERR_TEMPFILE"
+}
+
+trap 'exec 2>&4; logger_trap "$BASH_SOURCE" "$LINENO" "$BASH_COMMAND" "$*" "${FUNCNAME[0]}"' ERR
+trap 'rm -f "$STDERR_TEMPFILE"' EXIT SIGINT SIGQUIT SIGABRT SIGTERM
