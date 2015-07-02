@@ -12,7 +12,8 @@ setup(
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: MIT License',
+        'License :: OSI Approved :: Apache Software License',
+        'Programming Language :: Python :: 3 :: Only',
         'Programming Language :: Python :: 3.4',
     ],
     keywords='raven sentry bash',
