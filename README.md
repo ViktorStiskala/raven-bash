@@ -41,5 +41,6 @@ This script works only with `set -e` (enabled automatically) bash option which m
 ## Known bugs
 Will be hopefully fixed in one of the future releases.
 
+* **stderr output is discarded when your program exits correctly**
 * "traceback" works only for the last included file
 * Unrelated package versions are added to the request (this is due to `raven-python` which collects additional data from Python interpreter)
