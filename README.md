@@ -18,7 +18,7 @@ pip install raven-bash
 
 ## Usage
 1. Create the file `/etc/raven-bash.conf` with the following content:
-  ```
+  ```ini
   [DEFAULT]
   
   # replace with your DSN
