@@ -41,7 +41,7 @@ This script works only with `set -e` (enabled automatically) bash option which m
 
 When running your scripts as cron jobs please be aware of possibly different `PATH` settings. `source raven-bash` will not work with incorrect `PATH`. This can be fixed by specifying environment variable in crontab, eg.:
 
-```crontab
+```bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 # m h  dom mon dow   command
