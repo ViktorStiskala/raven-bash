@@ -39,6 +39,15 @@ pip install raven-bash
 ## Caveats
 This script works only with `set -e` (enabled automatically) bash option which means that any command returning non-zero return code will produce an error and stop the execution. If some of your commands is returning non-zero return code and it is not an error you can prevent this from happening for example by piping it's output to `| true`.
 
+When running your scripts as cron jobs please be aware of possibly different `PATH` settings. `source raven-bash` will not work with incorrect `PATH`. This can be fixed by specifying environment variable in crontab, eg.:
+
+```crontab
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# m h  dom mon dow   command
+# your commands
+```
+
 ## Known bugs
 Will be hopefully fixed in one of the future releases.
 
