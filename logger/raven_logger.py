@@ -101,7 +101,7 @@ class LoggerClient:
         # add ENV vars and stderr if provided
         extra = {}
         if shell_args.env:
-            extra['environment'] = dict([item.split('=', maxsplit=1) for item in shell_args.env.split('\n')])
+            extra['environment'] = dict([item.split('=', 1) for item in shell_args.env.split('\n')])
 
         if shell_args.stderr:
             extra['stderr'] = shell_args.stderr
