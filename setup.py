@@ -1,9 +1,6 @@
 import sys
 from setuptools import setup
 
-if sys.version_info[:2] < (3, 1):
-    sys.exit('raven-bash requires Python 3.1 or higher.')
-
 long_description = '''\
 Raven Sentry client for Bash.
 
