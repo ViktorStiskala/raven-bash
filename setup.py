@@ -32,7 +32,7 @@ setup(
     author_email='viktor@stiskala.cz',
     url='https://github.com/hareevs/raven-bash',
     license='Apache License 2.0',
-    install_requires=['raven>=5.1.1'],
+    install_requires=['raven>=5.1.1', 'configparser'],
     packages=['logger'],
     package_data={'logger': ['raven-bash', 'logger/*.py']},
     entry_points={
