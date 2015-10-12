@@ -25,7 +25,7 @@ setup(
         'Programming Language :: Python :: 3.4',
     ],
     keywords='raven sentry bash',
-    author='Viktor Stískala',
+    author='Viktor Stiskala',
     author_email='viktor@stiskala.cz',
     url='https://github.com/hareevs/raven-bash',
     license='Apache License 2.0',
