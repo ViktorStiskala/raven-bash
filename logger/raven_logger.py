@@ -10,6 +10,10 @@ from raven import Client
 CONFIG_FILE = '/etc/raven-bash.conf'
 
 
+class RavenBashException(Exception):
+    pass
+
+
 class LoggerClient:
     def __init__(self, dsn):
         self._client = Client(dsn=dsn, context={})
@@ -85,6 +89,7 @@ class LoggerClient:
             except FileNotFoundError:
                 sys.stderr.write('Could not process file "{}"\n'.format(abspath))
 
+        exc_text = 'error on line {}'.format(shell_args.lineno) if not shell_args.function else "error in '{}' on line {}".format(shell_args.function, shell_args.lineno)
         data = {
             'exception': {
                 'values': [{
@@ -93,7 +98,7 @@ class LoggerClient:
                         'frames': [frame]
                     },
                     'type': shell_args.script,
-                    'value': 'error on line {}'.format(shell_args.lineno) if not shell_args.function else "error in '{}' on line {}".format(shell_args.function, shell_args.lineno)
+                    'value': exc_text
                 }]
             },
         }
@@ -106,7 +111,10 @@ class LoggerClient:
         if shell_args.stderr:
             extra['stderr'] = shell_args.stderr
 
-        self._client.capture('raven.events.Exception', data=data, extra=extra)
+        # Create dummy exc_info to satisfy newer versions of raven
+        exc_info = (RavenBashException, RavenBashException(exc_text), None)
+        self._client.capture('raven.events.Exception', data=data, extra=extra, exc_info=exc_info)
+
 
 def main():
     try:
@@ -139,6 +147,7 @@ def main():
 
     client = LoggerClient(dsn)
     client.capture(args)
+
 
 if __name__ == '__main__':
     main()

@@ -17,7 +17,7 @@ if sys.version_info[:2] < (3, 0):
 
 setup(
     name='raven-bash',
-    version='0.2',
+    version='1.0',
     description='Raven Sentry client for Bash.',
     long_description=long_description,
     classifiers=[
